@@ -99,7 +99,9 @@ variable "consul_partition" {
 variable "consul_encryption_key" {
   default = "P4+PEZg4jDcWkSgHZ/i3xMuHaMmU8rx2owA4ffl2K8w="
 }
-variable "consul_agent_ca" {}
+variable "consul_agent_ca" {
+  default = ""
+}
 
 variable "consul_agent_token" {
   description = "The Consul Agent and Default token"
