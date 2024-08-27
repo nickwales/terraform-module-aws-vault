@@ -3,7 +3,7 @@ resource "aws_autoscaling_group" "asg" {
   max_size                  = 3
   min_size                  = 1
   health_check_grace_period = 300
-  health_check_type         = "ELB"
+  health_check_type         = "EC2"
   desired_capacity          = "${var.instance_count}"
   
   instance_refresh {
