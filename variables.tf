@@ -77,7 +77,7 @@ variable "consul_license" {
 }
 
 variable "consul_version" {
-  default = "1.16.2"
+  default = "1.18.2"
 }
 variable "consul_binary" {
   description = "Should be either 'consul' or 'consul-enterprise'"
