@@ -73,7 +73,8 @@ ports = {
   grpc_tls = 8503
 }
 
-retry_join = ["provider=aws tag_key=role tag_value=consul-server-${consul_datacenter}"]
+#retry_join = ["provider=aws tag_key=role tag_value=consul-server-${name}-${consul_datacenter}"]
+retry_join = ${consul_retry_join}
 EOT
 
 systemctl daemon-reload

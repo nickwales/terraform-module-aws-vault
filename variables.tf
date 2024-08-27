@@ -107,3 +107,8 @@ variable "consul_agent_token" {
   description = "The Consul Agent and Default token"
   default = "root"
 }
+
+variable "consul_retry_join" {
+  description = "How consul clients connect to Consul servers"
+  default = "[\"provider=aws tag_key=role tag_value=consul-server-$${name}-$${consul_datacenter}\"]"
+}

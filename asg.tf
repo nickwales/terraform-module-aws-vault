@@ -54,6 +54,7 @@ resource "aws_launch_template" "lt" {
     consul_partition      = var.consul_partition,
     consul_version        = var.consul_version,
     consul_token          = var.consul_token,
+    consul_retry_join     = var.consul_retry_join,
     consul_encryption_key = var.consul_encryption_key,
     consul_license        = var.consul_license,
     consul_agent_ca       = var.consul_agent_ca,
