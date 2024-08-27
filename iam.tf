@@ -34,13 +34,18 @@ resource "aws_iam_role_policy" "policy" {
                 "ec2:DescribeInstances",
                 "ec2:DescribeTags",
                 "autoscaling:DescribeAutoScalingGroups",
+                "iam:GetInstanceProfile",
+                "iam:GetUser",
+                "iam:GetRole"                
             ]
             Effect = "Allow"
             Resource = "*"
-          },
+          },        
         ]
     })
 }
+
+
 
 resource "aws_iam_role_policy_attachment" "read-only-attach" {
   role       = aws_iam_role.role.id
