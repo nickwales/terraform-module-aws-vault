@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "asg" {
-  name_prefix               = "${var.name}-vault-${var.consul_datacenter}"
+  name_prefix               = "vault-${var.name}-${var.consul_datacenter}"
   max_size                  = 3
   min_size                  = 1
   health_check_grace_period = 300
@@ -21,7 +21,7 @@ resource "aws_autoscaling_group" "asg" {
 
   tag {
     key                 = "Name"
-    value               = "${var.name}-${var.consul_datacenter}"
+    value               = "vault-${var.name}-${var.consul_datacenter}"
     propagate_at_launch = true
   }
 }
@@ -33,13 +33,13 @@ resource "aws_launch_template" "lt" {
   iam_instance_profile {
     name = aws_iam_instance_profile.profile.name
   }
-  name_prefix = "${var.name}-vault-${var.consul_datacenter}"
+  name_prefix = "vault-${var.name}-${var.consul_datacenter}"
   tag_specifications {
     resource_type = "instance"
 
     tags = {
-      Name = "${var.name}-${var.consul_datacenter}",
-      role = "${var.name}-${var.consul_datacenter}",
+      Name = "vault-${var.name}-${var.consul_datacenter}",
+      role = "vault-${var.name}-${var.consul_datacenter}",
     }
   }  
   update_default_version = true
