@@ -12,7 +12,7 @@ apt update && apt install -y unzip ${consul_binary}="${consul_version}*" consul-
 
 # Lay down consul certificates
 mkdir -p /etc/consul.d/certs
-echo "${consul_agent_ca}" > /etc/consul.d/certs/consul-agent-ca.pem
+echo "${consul_ca_file}" > /etc/consul.d/certs/consul-agent-ca.pem
 
 # Setup CLI
 echo "CONSUL_HTTP_TOKEN=${consul_token}" >> /etc/environment

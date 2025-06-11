@@ -9,20 +9,8 @@ variable "service_tags" {
   type    = list(string)
   default = [""]
 }
-variable "message" {
-  description = "The message fake service will display"
-  default = ""
-}
 
-variable "upstream_uris" {
-  description = "Comma separated list of upstream URIs"
-  default = ""
-}
 
-variable "app_port" {
-  description = "Port that fake-service should run on"
-  default = "8080"
-}
 
 ## EC2 Cconfiguration
 
@@ -99,7 +87,7 @@ variable "consul_partition" {
 variable "consul_encryption_key" {
   default = "P4+PEZg4jDcWkSgHZ/i3xMuHaMmU8rx2owA4ffl2K8w="
 }
-variable "consul_agent_ca" {
+variable "consul_ca_file" {
   default = ""
 }
 

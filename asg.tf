@@ -47,7 +47,6 @@ resource "aws_launch_template" "lt" {
   user_data = base64encode(templatefile("${path.module}/templates/userdata.sh.tftpl", { 
     name                  = var.name,
     service_tags          = jsonencode(var.service_tags),
-    message               = local.message,
     vault_binary          = var.vault_binary,
     vault_version         = var.vault_version,
     consul_datacenter     = var.consul_datacenter, 
@@ -57,13 +56,11 @@ resource "aws_launch_template" "lt" {
     consul_retry_join     = var.consul_retry_join,
     consul_encryption_key = var.consul_encryption_key,
     consul_license        = var.consul_license,
-    consul_agent_ca       = var.consul_agent_ca,
+    consul_ca_file        = var.consul_ca_file,
     consul_binary         = var.consul_binary,
     consul_namespace      = var.consul_namespace,
     consul_agent_token    = var.consul_agent_token,
     instance_count        = var.instance_count,
-    upstream_uris         = var.upstream_uris,
-    app_port              = var.app_port,
     target_groups         = var.target_groups,
   }))
   vpc_security_group_ids = [aws_security_group.sg.id]
